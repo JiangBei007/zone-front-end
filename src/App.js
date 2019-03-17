@@ -12,9 +12,7 @@ class App extends Component {
 	}
   render() {
     return (<HashRouter>
-      <div className="App">
         <RouteIndex/>
-      </div>
     </HashRouter>);
   }
 }
