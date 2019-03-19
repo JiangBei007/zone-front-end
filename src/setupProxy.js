@@ -12,4 +12,10 @@ module.exports = function (app) {
             "^/signout": "/signout"
         }
     }));
+	app.use(proxy('/register', {
+	    target: 'http://127.0.0.1:9000',
+	    pathRewrite: {
+	        "^/register": "/register"
+	    }
+	}));
 };

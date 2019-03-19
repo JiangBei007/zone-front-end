@@ -30,6 +30,15 @@ export default class Register extends Component{
 		if(!surepassword){
 			return message.warn("请确认密码",1);
 		}
+		if(password!==surepassword){
+			return message.warn("两次密码必须相同",1);
+		}
+		const hide = message.loading("请稍等···")
+		const sendData = {name,SecretProtection,password}
+		axios.post("/register",sendData).then((res)=>{
+			console.log(res)
+			hide()
+		})
 	}
 	render(){
 		return(<div id="register">
