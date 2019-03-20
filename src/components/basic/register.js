@@ -1,5 +1,5 @@
 import React , { Component } from "react"
-import { message } from 'antd';
+import { message } from 'antd'
 import "./register.scss"
 import axios from "axios"
 
@@ -36,8 +36,12 @@ export default class Register extends Component{
 		const hide = message.loading("请稍等···")
 		const sendData = {name,SecretProtection,password}
 		axios.post("/register",sendData).then((res)=>{
-			console.log(res)
 			hide()
+			const data = res.data;
+			if(data.state===1){
+				this.props.history.push("/signin")
+			}
+			message.loading(data.message,1)
 		})
 	}
 	render(){
