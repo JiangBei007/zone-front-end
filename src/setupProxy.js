@@ -18,4 +18,10 @@ module.exports = function (app) {
 	        "^/register": "/register"
 	    }
 	}));
+	app.use(proxy('/loginStatus', {
+	    target: 'http://127.0.0.1:9000',
+	    pathRewrite: {
+	        "^/loginStatus": "/loginStatus"
+	    }
+	}));
 };
